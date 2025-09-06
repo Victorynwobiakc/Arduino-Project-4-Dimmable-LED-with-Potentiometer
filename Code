@@ -1,0 +1,27 @@
+// C++ code
+
+// pins setup
+int ledPin = 9;      
+int potPin = A2;
+
+// potentiometer initial value
+int potValue = 0;
+
+// set initial brightness
+int ledBrightness = 0;
+
+void setup() {
+  // output setup
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  // potentiometer reading (0-1023)
+  potValue = analogRead(potPin);             
+  // mapping (0-255)
+  ledBrightness = map(potValue, 0, 1023, 0, 255);
+  // set led brightness
+  analogWrite(ledPin, ledBrightness); 
+  // delay
+  delay(10);                               
+}
